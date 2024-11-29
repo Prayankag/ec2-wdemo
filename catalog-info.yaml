@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: EC2-Dev47
+  description: provision EC2 server for dev environment
+spec:
+  owner: 
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: EC2-Dev47
+  description: provision EC2 server for dev environment
+  annotations:
+     backstage.io/techdocs-ref: dir:./docs
+     github.com/project-slug: prayankag/ec2-wdemo
+     github-actions: enabled
+     github.com/workflows: |
+      [
+        {
+          "workflow": "instance.yaml",
+          "label": "Start",
+          "tooltip": "click here and start the workflow process"
+        }
+      ]
+spec:
+  type: service
+  owner: 
+  lifecycle: experimental
+  system: EC2-Dev47
+  providesApis:
+    - EC2-Dev47
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: EC2-Dev47
+  description: provision EC2 server for dev environment
+spec:
+  type: internal
+  lifecycle: experimental
+  owner: 
+  system: EC2-Dev47
+  definition: "provision EC2 server for dev environment"
